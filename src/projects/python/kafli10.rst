@@ -1,9 +1,9 @@
-.. include:: rst-include
+.. include:: rst-include        
 
 .. _numpy:
    
 =============
- NumPy pakkinn
+NumPy pakkinn
 =============
 
 .. _numpy-inngangur:
@@ -124,8 +124,8 @@ for-lykkju, og þá er hægt að nota f-strengi, sbr. eftirfarandi dæmi
 .. code:: python
           
    a = np.array([5.55,7.77])
-   for i in range(len(a)):
-      print(f"a[i] = ")
+   for i,ai in enumerate(a):
+      print(f"a[{i}] = {ai}")
 
 sem mundi prenta
 
