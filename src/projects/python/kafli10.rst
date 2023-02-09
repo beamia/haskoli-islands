@@ -68,10 +68,10 @@ Síðan er sett ``np.`` eða ``la.`` á undan NumPy-skipunum og -föllum sem not
 Vigrar í NumPy
 ==============
 Vigur í NumPy er að mörgu leyti líkur venjulegum Python lista. Aðalmunurinn er
-sá að í vigrum eru öll stök tölur, oftast kommutölur (*float*) en það er líka
-hægt að geyma heiltölur eða strengi. En öll stök vigursins verða að vera af sama
-gagnatagi, og með því sparast minnispláss og auk þess fæst mun hraðvirkari
-vinnsla þegar unnið er með mörg stök.
+sá að í vigrum verða öll stök að vera af sama gagnatagi, og með því sparast
+minnispláss og auk þess fæst mun hraðvirkari vinnsla þegar unnið er með mörg
+stök. Eins og við munum gildir slík skorða ekki um lista, þeir geta innihaldið
+blöndu gagnataga.
 
 .. _vigur-gefið-gildi:
 
@@ -90,13 +90,6 @@ Eitt þeirra er fallið ``np.array`` sem breytir venjulegum Python-lista af töl
 Svo eru til skipanir til að búa til ýmsa sérstaka vigra, til dæmis fæst núllvigur með 3 stökum, :math:`z = (0,0,0)`, með:
 
    ``z = np.zeros(3)``
-
-Loks skal tekið fram að ef vigur er gefið gildi með öðrum vigri (t.d. ``y = x``)
-er ekki tekið afrit heldur er búin til ný tilvísun í vigurinn, sbr. kafla
-:numref:`gildisgjöf gefur tilvísun` og :numref:`aðgerðir sem duga á öll söfn`.
-Til að taka afrit mætti nota:
-
-   ``y = x.copy()``
 
 Einstök stök og hlutvigrar
 --------------------------
@@ -124,8 +117,8 @@ for-lykkju, og þá er hægt að nota f-strengi, sbr. eftirfarandi dæmi
 .. code:: python
           
    a = np.array([5.55,7.77])
-   for (i,ai) in enumerate(a):
-      print(f"a[{i}] = {a[i]}")
+   for i in range(len(a)):
+      print(f"a[i] = ")
 
 sem mundi prenta
 
@@ -300,11 +293,12 @@ Ef x og y eru jafnlangir vigrar þá er ``x < y`` vigur af rökgildum með
 :math:`i`-ta sæti satt (``True``) ef :math:`x_i < y_i`. Slíkan vigur má líka
 reikna með yfirgripi (*comprehension*) sbr. kafla :numref:`yfirgrip` þannig að:
 
-   ``x < y = np.array([x[i] < y[i] for i in range(len(x))])``
+   ``x < y`` er vigurinn ``np.array(xi < yi for (xi,yi) in zip(x,y))``.
 
-Svo mætti líka nota zip og fá sömu niðurstöðu með ``np.array([xi < yi for
-(xi,yi) in zip(x,y)])``. Í framhaldi má svo nota innbyggðu föllin :math:`any` og
-:math:`all` til að athuga hvort eitthvert eða öll stök rökvigranna séu sönn.
+Svo mætti líka nota ``range`` og ``len`` til að fá sömu niðurstöðu með
+``np.array([x[i] < y[i] for i in range(len(x))])``. Í framhaldi má svo nota
+innbyggðu föllin :math:`any` og :math:`all` til að athuga hvort eitthvert eða
+öll stök rökvigranna séu sönn.
 
 .. admonition:: Sýnidæmi: Jákvæð stök og samanburður vigra
    :class: synidaemi
@@ -437,28 +431,11 @@ Stök fylkis, línur og dálkar
 ----------------------------
 Hægt er að vísa í :math:`a_{ij}` (þ.e.a.s. stakið í línu :math:`i` og dálki
 :math:`j`) með ``A[i,j]``. Lína i fæst með ``A[i]`` eða ``A[i,:]`` og dálkur j
-fæst með ``A[:,j]``. Eins og fyrir vigra þá byrjar Python að telja í 0 og þessar
-vísanir má líka nota vinstra megin í gildisgjöf til að breyta stökum, línum eða
-dálkum, t.d. ``A[0,0]=37``, ``A[0,:]=[2,2,2]`` eða ``A[:,0]=0`` (setur öll stök
-í fremsta dálki = 0)`.
+fæst með ``A[:,j]``. Þessar tilvísanir má líka nota vinstra megin í gildisgjöf
+til að breyta stökum, línum eða dálkum.
 
-.. admonition:: Athugasemd: Gildisgjöf gefur tilvísun
-   :class: athugid
-
-   Ef gefin er skipunin
-
-       ``a0 = A[0,:]``
-
-   þá er búin til **tilvísun** í fyrstu línuna en ekki ný breyta með gildi hennar
-   (sbr. kafla :numref:`gildisgjöf gefur tilvísun`, :numref:`aðgerðir sem duga á
-   öll söfn` og :numref:`vigur gefið gildi`). Í raun er verið að gefa línunni
-   nafn, þannig að framhaldsskipunin ``a0 = [2,2,2]`` mundi breyta fyrstu
-   línunni í A. Á sama hátt mundi skipunin
-
-       ``B = A``
-
-   búa til tilvísun í fylkið. Til að taka afrit á nýjan stað í minni tölvnnar má
-   nota aðferðina ``copy``, t.d. ``a0 = A[0,:].copy()`` eða ``B = A.copy()``.
+Eins og fyrir vigra þá byrjar Python að telja í 0, þannig að ``A[0,:]`` er t.d.
+fyrsta línan.
 
 Núllfylki
 ---------
@@ -486,9 +463,7 @@ np.zeros((m,n),int)`` gefur heiltölu-núllfylki (það má líka skrifa
 
 Bylting
 -------
-Bylting (*transpose*) fylkis fæst með því að skipta á línum og dálkum.
-Stærðfræðilegi rithátturinn fyrir byltingu fylkis :math:`A` er :math:`A^T`,
-lesið "A bylt". Í NumPy má rita ``A.T`` til að bylta fylki ``A``, til dæmis:
+Bylting (*transpose*) fylkis fæst með því að skipta á línum og dálkum. Stærðfræðilegi rithátturinn fyrir byltingu fylkis :math:`A` er :math:`A^T`, lesið "A bylt". Í NumPy má rita ``A.T`` til að bylta fylki ``A``, til dæmis:
 
 .. code:: python
 
@@ -504,12 +479,6 @@ lesið "A bylt". Í NumPy má rita ``A.T`` til að bylta fylki ``A``, til dæmis
    [[3 0 2]
     [2 1 2]
     [1 0 2]]
-
-.. admonition:: Athugasemd: Bylta fylkið er tilvísun
-   :class: athugid
-
-   Fylkið B í dæminu hér að framan verður tilvísun í A bylt, sem uppfærist sjálfkrafa
-   ef A breytist. Til að fá nýtt fylki mætti nota ``B = A.copy().T``.
 
 Afpökkun
 --------
