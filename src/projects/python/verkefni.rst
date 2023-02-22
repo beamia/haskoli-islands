@@ -371,6 +371,10 @@ fengið pörin ``"rope"`` :math:`\to` ``"reipi"``, ``"house"`` :math:`\to`
 
    og prófið ``snúavið2``.
 
+.. figure:: myndir/shell-sort.jpg
+   :align: right
+   :figwidth: 10cm
+
 Shell-röðun
 ~~~~~~~~~~~
 Árið 1959 kom út `grein <https://dl.acm.org/doi/pdf/10.1145/368370.368387>`_
@@ -791,13 +795,9 @@ Búið til vigrana :math:`x = (6,7,18)` og :math:`y = (1,1,6)`. Reiknið svo:
 4. :math:`\|x\|^2 - \|y\|^2`
 5. :math:`\|x + y\|\cdot\|x - y\|`
 
-.. figure:: myndir/shell-sort.jpg
-   :align: right
-   :figwidth: 10cm
-
 Raðað í íslenska stafrófsröð
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Bæði ``sort``-fallið og ``sorted``-aðferðin sem útskýrð eru köflum
+Bæði ``sorted``-fallið og ``sort``-aðferðin sem útskýrð eru köflum
 :numref:`bua-til-sofn` og :numref:`bara-listar` geta raðað lista af strengjum í
 enskri stafrófsröð, en því miður lenda séríslenskir stafir ekki á réttum stað í
 röðinni. Séríslensku stafirnir eru aftast og ekki í réttri röð. Til að laga
@@ -818,7 +818,6 @@ attribute")
        """notað sem 'key' í sort eða sorted til að raða í íslenska stafrófsröð,
        t.d. print(sorted(['ár','bára','bali','akur'], key=íslenska))"""
        return [íslenska.k.get(c.lower(),0) for c in s]
-       return t
    íslenska.a = list('0123456789aábcdðeéfghiíjklmnoópqrstuúvwxyýzþæö')
    íslenska.k = dict(zip(íslenska.a, range(1,len(íslenska.a)+1)))
 
@@ -845,9 +844,9 @@ attribute")
 
 Sínussveiflur
 ~~~~~~~~~~~~~
-Teiknið mynd af fallinu :math:`f(x) = \sin x + \sin 2x - 2 \sin 3x` á bilinu
-:math:`[-\pi, 3\pi]`, sbr. dæmi V17. Hér er dæmi um slíka mynd með ýmsum
-fídusum, en ekki er farið fram á að þeir séu allir notaðir.
+Teiknið góða mynd af fallinu :math:`f(x) = \sin x + \sin 2x - 2 \sin 3x` á bilinu
+:math:`[-\pi, 3\pi]`, sbr. :numref:`verkefni %s<Fallateikning>`. Hér er dæmi um slíka mynd með ýmsum
+fídusum.
 
 .. figure:: myndir/sinsveiflur.jpg
    :align: center
@@ -939,14 +938,14 @@ nefnast **eðallofttegundir** (*noble gases*).
 4. **Eðlisþyngd eftir sæti.** Teiknið punktarit af sætistölu og eðlisþyngd sem
    er litað með lotu í lotukerfinu (sbr. :numref:`verkefni %s<hiti og úrkoma>` –
    ath. að Matplotlib getur teiknað hvort sem er lista af tölum eða NumPy
-   vigra). Munið að bæta ``colorbar`` við myndirnar.
+   vigra). Veljið hæfilega punktastærð, bætið ``colorbar`` við myndirnar,
+   stillið ásamerkingar eftir smekk, setjið texta við ása og bætið við rúðuneti (grid).
 
-5. **Fleiri myndir??** Ef tími vinnst til má t.d. teikna samskonar mynd af sætistölu
-   og bræðslumarki.
+5. **Fleiri myndir** Teiknið samskonar myndir af sætistölu og bræðslumarki.
 
 Kosningaúrslit í lit
 ~~~~~~~~~~~~~~~~~~~~
-Í kafla :numref:`dæmi-um-teikningu-talnagagna` var gefið sýnidæmi um einfalda
+Í kafla :numref:`dæmi um teikningu talnagagna` var gefið sýnidæmi um einfalda
 teikningu súlurits af kosningaúrslitum 2021. Þar voru gögnin lesin með aðstoð
 ``urlopen``, en í þessu verkefni verða þau lesin með NumPy og jafnframt búið
 til fínna súlurit þar sem:
@@ -1039,7 +1038,7 @@ Hér er mynd af súluritinu sem stefnt er að:
          xy.set_major_formatter(FuncFormatter('{0:.0%}'.format))
 
    Flokkanöfnin eru sett neðan við hverja súlu með `xticks`-skipun eins og í
-   sýnidæminu í kafla :numref:`dæmi-um-teikningu-talnagagna`, en hinsvegar þarf
+   sýnidæminu í kafla :numref:`dæmi um teikningu talnagagna`, en hinsvegar þarf
    að skrifa þau lóðrétt, og það er gert með viðfangi ``rotation``, nánar
    tiltekið:
 
@@ -1047,7 +1046,7 @@ Hér er mynd af súluritinu sem stefnt er að:
 
    Þá er eftir að skrifa inn þingsætin. Til þess er notuð skipunin ``text``,
    sbr. :numref:`töflu %s <text-fallið>` og líka fyrra sýnidæmið í
-   :numref:`kafla %s <dæmi-um-teikningu-talnagagna>`. Við förum í lykkju yfir
+   :numref:`kafla %s <dæmi um teikningu talnagagna>`. Við förum í lykkju yfir
    x-hnitin í vigrunum og skrifum hvern þinsætafjölda ofan við sína súlu, t.d. í
    13 punkta letri. Vigurinn hlutfall gefur y-hnit fyrir textana.
 
@@ -1084,7 +1083,7 @@ skila stuðlum í jöfnu bestu línu og jöfnu bestu parabólu fyrir punktasafni
    y &= a x + b \\
    y &= A x^2 + B x + C
 
-Til að teikna línuna eða parabóluna er hægt að nota aðferðir kafla :numref:`groffalla`, en reyndar er hægt að einfalda málið með því að notfæra sér numpy reikninga. Til teikna línuna á bilinu :math:`[x_\text{min}, x_\text{max}]` má t.d. nota:
+Til að teikna línuna eða parabóluna er hægt að nota aðferðir kafla :numref:`teikning af gröfum falla`, en reyndar er hægt að einfalda málið með því að notfæra sér numpy reikninga. Til teikna línuna á bilinu :math:`[x_\text{min}, x_\text{max}]` má t.d. nota:
 
 .. code:: python
           
@@ -1145,16 +1144,17 @@ dálka með aldri hæð og þyngd 1064 bandarískra körfuboltamanna. Notið
 ``np.loadtxt`` til að lesa skrána inn í þrjá vigra t.d. `aldur`, `hæð` og
 `þyngd` eða `a`, `h` og `þ`. Eftirfarandi teikningar þarf að gera sæmilega
 snyrtilega, m.a. merkja ása og setja inn titla og passa að þær séu mátulega
-stórar. Þeir sem vilja mega setja einhverjar teikningar hlið við hlið með því að
-nota ``plt.subplot``, sbr. einfalda lýsingu `hér
+stórar. Mörk súlna í súluritunum þurfa að vera rúnnaðar tölur (t.d. heilar eða hálfar tölur) og súlurnar eiga að hafa bil á milli sín. Þeir sem vilja mega setja einhverjar teikningar hlið við hlið með því að nota ``plt.subplot``, sbr. einfalda lýsingu `hér
 <https://www.w3schools.com/python/matplotlib_subplots.asp>`_.
 
-1. Teiknið þrjú (einföld) súlurit af aldri, hæð og þyngd.
+1. Teiknið þrjú súlurit af aldri, hæð og þyngd.
 
 2. Teiknið punktarit með hæð á x-ás og þyngd á y-ás. Finnið svo og teiknið jöfnu
    bestu línu inn á myndina (sbr. :numref:`verkefni %s<jafna bestu línu>`)
+
+3. Teiknið aðra mynd með bestu parabólu.
    
-3. Miðtölu (*median*) vigurs `x` má finna með `np.median(x)` (helmingur staka
+4. Miðtölu (*median*) vigurs `x` má finna með `np.median(x)` (helmingur staka
    `x` er minni en miðtalan og helmingur stærri). Hver er miðtala aldurs
    körfuboltamannanna. Notið miðtöluna til að skipta gögnunum í tvennt (með
    rökvísun), *yngri* og *eldri*. Finnið meðalhæð þeirra yngri og þeirra eldri.
@@ -1474,8 +1474,9 @@ Valkvæðir stikar
 Föll geta haft **valkvæða stika** sem taka sjálfgefin gildi ef þeim er sleppt.
 Þannig hefur print-fallið tvo valkvæða stika, ``sep`` og ``end``, sbr. kafla
 :numref:`útprentun`. Eftirfarandi dæmi, sem reiknar n-tu rót, sýnir hvernig hægt
-er að skilgreina fall með valkvæðan stika. Fallið reiknar kvaðratrót ef
-seinna viðfanginu er sleppt og prentar því út ``rætur: 4 og 2``.
+er að skilgreina fall með valkvæðan stika. Fallið reiknar kvaðratrót ef seinna
+viðfanginu er sleppt og prentar því út ``rætur: 4 og 2``. Annað dæmi er í
+verkefni :numref:`%s.3<hiti og úrkoma>`.
 
 .. code:: python
 

@@ -2,7 +2,7 @@
 
 Slembitölur
 ===========
-**Slembitölur** (*random numbers*) koma oft við sögu í forritun. Til dæmis eru þær nauðsynlegur hluti af hermun (*simulation*) þar sem líkt er eftir raunverulegu ferli eða atburðarás í tölvu, þær eru notaðar til að forrita slembin spil, m.a. teningaspil og spil fyrir venjulegan 52 spila stokk, þær eru mikið notaðar í tölfræðilegri greiningu, og þær nýtast til að búa til gervigögn. Flestöll nútíma-forritunarmál geta búið til slembitölur, og er Python þar engin undantekning. Við höfum þegar kynnst þeim lauslega í köflum :numref:`sulurit`, :numref:`dæmi-um-legend` og :numref:`dæmi-um-hist` (kíkið gjarnan á þessa kafla).
+**Slembitölur** (*random numbers*) koma oft við sögu í forritun. Til dæmis eru þær nauðsynlegur hluti af hermun (*simulation*) þar sem líkt er eftir raunverulegu ferli eða atburðarás í tölvu, þær eru notaðar til að forrita slembin spil, m.a. teningaspil og spil fyrir venjulegan 52 spila stokk, þær eru mikið notaðar í tölfræðilegri greiningu, og þær nýtast til að búa til gervigögn. Flestöll nútíma-forritunarmál geta búið til slembitölur, og er Python þar engin undantekning. Við höfum þegar kynnst þeim lauslega í köflum :numref:`súlurit`, :numref:`dæmi um legend` og :numref:`dæmi um hist` (kíkið gjarnan á þessa kafla).
 
 Random-einingin
 ---------------
@@ -213,7 +213,7 @@ Gervigögn
 ---------
 Eins og sagt var fremst í þessum :numref:`slembitölur`. kafla er ein af
 hagnýtingum slembitalna sú að búa til gervigögn. Við sáum dæmi um það þegar búin
-voru til súlurit af normaldreifðum gögnum í :numref:`teikning-með-matplotlib`.
+voru til súlurit af normaldreifðum gögnum í :numref:`teikning með matplotlib`.
 kafla. Hér verður skoðað hvernig hægt er að búa til gervigögn til að útskýra
 jöfnur bestu línu og bestu parabólu, sem unnið er með í :numref:`verkefni
 %s<jafna bestu línu>`, og auk þess jöfnu besta plans. Lesendur ættu að byrja á

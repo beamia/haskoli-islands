@@ -353,31 +353,45 @@ föll, en þær mikilvægustu eru:
 4. Að geta endurnýtt forritsbúta seinna. Þessi ástæða birtist þannig að kallað
    er á sama fall í mismunandi forritum.
 
-Föllin í Collatz-forritinu falla í flokka 1 og 2. Til að láta þau falla vel
-í flokk 1 ættum við reyndar að skíra þau lengri nöfnum, t.d.
-:code:`finna_næstu_tölu_á_eftir` og :code:`finna_collatz_runu_sem_byrjar_á`.
-Ef það er gert mætti sem best sleppa dokk-strengjunum. 
+Föllin í Collatz-forritinu falla í flokka 1 og 2. Til að láta þau falla vel í
+flokk 1 ættum við reyndar að skíra þau lengri nöfnum, t.d.
+:code:`finna_næstu_tölu_á_eftir` og :code:`finna_collatz_runu_sem_byrjar_á`. Ef
+það er gert mætti sem best sleppa athugasemdunum (skjölunarstrengjunum) fremst í
+þeim.
 
 .. rubric:: Skilgreining falls
+
+Ný föll þarf að skilgreina áður en þau eru notuð, en annars eru engar skorður
+á hvar í forritinu það er gert. Svona lítur slík skilgreining út:
 
 .. code:: python3
 
    def fall(stiki, stiki...):
-       '''skjölunarstrengur'''
+       # Lýsing falls (skjölunarstrengur)
        skipanir
        return g
 
-   # Skjölunarstrengurinn er valkvæður en góð regla að hafa hann með
-   # Ef fallið skilar mörgum gildum endar það á: return (g1,g2...)
-   # Ef það skilar engu er return-skipun sleppt
+Ef fallið skilar mörgum gildum endar það á: ``return (g1,g2...)`` Ef það skilar
+engu er return-skipun sleppt.
+
+.. rubric:: Skjölunarstrengir
+
+Skjölunarstrengurinn er valkvæður en góð regla að hafa hann með. Annar möguleiki
+á að skrifa hann er að hafa hann innan þrefaldra gæsalappa eins og sýnt var í
+kafla :numref:`Python atriði sem koma fyrir í forritinu Collatz`. Slíkir
+skjölunarstrengir hafa kosti ef fallið er hluti af stærra fallasafni sem ætlað
+er til almennrar dreifingar og notkunar, því þeir gefa möguleika á að búa til
+skjölun um allt safnið sjálfkrafa.
            
 .. rubric:: Kallað á fall
 
-:code:`g = fall(viðfang, viðfang...)` |br|
-Má líka nota í segð: :code:`h = 2*fall(viðföng) + 1` |br|
-Ef fallið skilar engu: :code:`fall(viðföng)` |br|
-Ef fallið skilar mörgum gildum: :code:`(g1,g2...) = fall(viðföng)` |br|
-Líka má sleppa svigunum: :code:`g1,g2... = fall(viðföng)` |br|
+.. code::
+            
+   g = fall(viðfang, viðfang...)  # á sér línu
+   h = 2*fall(viðföng) + 1        # má líka nota í segð
+   fall(viðföng)                  # ef fallið skilar engu
+   (g1,g2...) = fall(viðföng)     # ef fallið skilar mörgum gildum
+   g1,g2... = fall(viðföng)       # það má sleppa svigunum
 
 .. admonition:: Sýnidæmi: Rúmmál keilu
    :class: synidaemi

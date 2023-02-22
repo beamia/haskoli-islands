@@ -20,7 +20,7 @@ Svo má beita fallinu á alla punkta flatarmyndar og skoða myndmengið sem kemu
 - **skekking** (*shear deformation*) um tiltekið horn
 - **speglun** (*reflection*) um x-ás eða y-ás
 
-Sem dæmis er fylkið:
+Sem dæmi er fylkið:
 
 .. math:: K = \begin{pmatrix} 1 & \sin 30° \\ 0 & 1 \end{pmatrix}
 

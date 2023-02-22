@@ -21,7 +21,12 @@ clean:
 
 www:
 	$(MAKE) build
-	copy-to-cs $(BUILD) /Volumes/cs/htdocs/python
+	copy-to-cs $(BUILD) pluto:/mnt/edbook/python
+
+topluto:
+	rsync -v -r -u ./ pluto:haskoli-islands/src/projects/$(PROJECT)
+
+# copy-to-cs $(BUILD) /Volumes/cs/htdocs/python
 
 $(BUILDCSS): $(PROJECTCSS)
 	mkdir -p $(BUILDCSSDIR)
