@@ -101,7 +101,7 @@ skipunin:
 
 .. code:: text
 
-   conda install scipy matplotlib pandas jupyterlab
+   conda install scipy matplotlib pandas jupyterlab statsmodels
 
 (hún tekur nokkra stund að klárast)
 

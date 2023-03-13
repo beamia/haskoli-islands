@@ -454,12 +454,13 @@ t.d. :math:`z = xy` þá er oft litið svo á, þegar tekin er hlutafleiða, að
 Stigull
 -------
 
-Lát :math:`f` vera tvívítt fall, diffranlegt í punkti :math:`(a,b)`, og látum
-:math:`v` vera vigur sem stefnir í þá átt sem :math:`f` vex hraðast. Venjuleg
-afleiða af einvíðu falli í punkti :math:`a` er hallatala (*slope*) snertils
-(*tangent*) í punktinum, og á sama hátt mælir **stigull** (*gradient*) tvívíðs falls
-í :math:`(a,b)` hallatölu snertils í :math:`(a,b)`. En stigullinn er hinsvegar
-vigur en ekki tala eins og afleiða einvíða fallsins.
+Venjuleg afleiða af einvíðu falli í tilteknum punkti er hallatala (*slope*)
+snertils (*tangent*) í punktinum. Til að útvíkka þessa skilgreiningu fyrir tvítt
+fall þarf að taka tillit til þess að í hverjum punkti eru margir snertlar. Til
+að höggva á hnútinn er valinn sá snertill sem hefur mestan bratta. Þannig er
+afleiða tvíðvíða fallsins eða *stigull* (*gradient*) þess látinn vera vigur en ekki tala eins
+og afleiða einvíða fallsins, stefna hans sýnir í hvaða átt bratinn er mestur og
+lengd hans gefur brattann.
 
 .. admonition:: Skilgreining: Stigull
    :class: regla
@@ -577,8 +578,12 @@ Við bregðum svo út af vananum, að sleppa flestum sönnunum, og sönnum þess
 .. rubric:: Stigull og hæðarlínur   
 
 Eins og útskýrt var að framan er stigull vigur sem stefnir upp bröttustu
-brekkuna, og hann er því lengri sem brattinn er meiri. Ein afleiðing þessa er
-að stigullinn verður hornréttur á hæðarlínur fallsins.
+brekkuna, og hann er því lengri sem brattinn er meiri. Ein afleiðing þessa er eftirfarandi regla.
+
+.. admonition:: Regla: Stiglar eru hornréttir á hæðarlínur
+   :class: regla
+
+   Stigull falls í gefnum punkti er hornréttur á hæðarlínu fallsins í gegn um punktinn
    
 .. admonition:: Sýnidæmi: Stigull fundinn
    :class: synidaemi
@@ -644,7 +649,7 @@ Næsta setning gefur okkur aðferð til að reikna stefnuafleiðu og sönnun hen
 
    :math:`f'(p;u) = \nabla f(p) \cdot u`
 
-Stefnuafleiðan er sem sé innfeldi Ein afleiðing af þessari setningu er að hlutafleiður :math:`f` eru stefnuafleiður í stefnu einingavigranna, :math:`(1,0)` og :math:`(0,1)`, en um einingavigra verður fjallað nánar í kaflanum um línulega algebru.
+Stefnuafleiðan er sem sé innfeldi. Ein afleiðing af þessari setningu er að hlutafleiður :math:`f` eru stefnuafleiður í stefnu einingavigranna, :math:`(1,0)` og :math:`(0,1)`, en um einingavigra verður fjallað nánar í kaflanum um línulega algebru.
 
 .. admonition:: Sýnidæmi: Stefnuafleiða falls
    :class: synidaemi
@@ -653,12 +658,82 @@ Stefnuafleiðan er sem sé innfeldi Ein afleiðing af þessari setningu er að h
 
    .. math:: f(x,y) = x^2 + xy + y^2 - 3x
 
-   út eftir :math:`u = (1, 3)` í punktinum :math:`(2,1)`. Skv. síðasta sýnidæmi
-   er :math:`\nabla f(2,1) = (2,4)` og stefnuafleiðan er þessvegna
+   út eftir :math:`u = (1, 3)` í punktinum :math:`p = (2,1)`. Skv. síðasta sýnidæmi
+   er :math:`\nabla f(2,1) = (2,4)` og stefnuafleiðan er þess vegna
 
    .. math::
-      (2,4) \cdot (1,3) = 2\cdot 1 + 4\cdot 3 = 2 + 12 = 14      
-   
+      f'(p; u) = (2,4) \cdot (1,3) = 2\cdot 1 + 4\cdot 3 = 2 + 12 = 14      
+
+.. admonition:: Æfing: Stefnuafleiða
+   :class: aefing
+
+   Lát :math:`f(x, y) = x^2 + 2xy`, :math:`p=(1,2)` og :math:`u=(1,1)`. Reiknið
+   :math:`f'(p; u)`.
+
+Annars stigs hlutafleiður Hesse-fylki og tvívíðar ákveður
+---------------------------------------------------------
+Eftirfarandi skilgreining er fengin að láni úr `fyrirlestrarnótum um Stærðfræðigreiningu II <https://edbook.hi.is/stae205g/kafli02/#index-10>`_:
+
+.. admonition:: Skilgreining: 
+   :class: regla
+
+   Ritum :math:`z=f(x,y)`. Annars stigs hlutafleiður f eru skilgreindar með formúlunum
+
+   .. math::
+      \displaystyle
+      \frac{\partial^2 z}{\partial x^2}=
+      \frac{\partial}{\partial x} \frac{\partial z}{\partial x}
+      =f_{11}(x,y)=f_{xx}(x,y),
+
+      \displaystyle
+      \frac{\partial^2 z}{\partial y^2}=
+      \frac{\partial}{\partial y} \frac{\partial z}{\partial y}
+      =f_{22}(x,y)=f_{yy}(x,y),
+
+      \displaystyle
+      \frac{\partial^2 z}{\partial x\partial y}=
+      \frac{\partial}{\partial x} \frac{\partial z}{\partial y}
+      =f_{21}(x,y)=f_{yx}(x,y),
+      
+      \displaystyle
+      \frac{\partial^2 z}{\partial y\partial x}=
+      \frac{\partial}{\partial y} \frac{\partial z}{\partial x}
+      =f_{12}(x,y)=f_{xy}(x,y).
+
+Þar er líka sannað að :math:`f_{xy}(x,y) = f_{yx}(x,y)` ef :math:`f` uppfyllir
+tiltekin samfelldniskilyrði, sem flest föll sem við fáumst við gera.
+
+Annars stigs hlutafleiður eru oft settar fram í fylki:
+
+.. admonition:: Skilgreining: Hesse-fylki
+   :class: regla
+
+   **Hesse-fylki** (*Hessian matrix*) tvívíðs falls :math:`f` í punkti
+   :math:`p = (x,y)` er fylkið
+
+   .. math::
+      
+      H(p)= \begin{bmatrix}
+      f_{xx}(x,y)&f_{xy}(x,y) \\ 
+      f_{yx}(x,y)&f_{yy}(x,y)
+      \end{bmatrix}
+
+Skv. framansögðu er Hesse-fylkið (yfirleitt) samhverft.
+
+**Ákveða** (*determinant*) er hugtak sem oft er notað í línulegri algebru.
+Ákveður verða notaðar í næsta kafla til að flokka útgildi. Fyrir :math:`2 \times
+2` fylki er skilgreining ákveðunnar einföld:
+
+.. admonition:: Skilgreining: Tvívíð ákveða
+   :class: regla
+
+   Ákveða :math:`2 \times 2` fylkis :math:`A = \begin{pmatrix}a & b\\c &
+   d\end{pmatrix}` er
+
+   .. math::
+
+      \det(A) = ad - bc
+         
 Útgildi tvívíðra falla
 ----------------------
 

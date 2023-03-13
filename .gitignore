@@ -17,6 +17,7 @@ var/
 .installed.cfg
 .vscode
 .python-version
+.ipynb_checkpoints
 _build/
 build/
 .env

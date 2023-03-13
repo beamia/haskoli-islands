@@ -21,7 +21,7 @@ clean:
 
 www:
 	$(MAKE) build
-	copy-to-cs $(BUILD) pluto:/mnt/edbook/python
+	rsync -vru $(BUILD)/ pluto:/mnt/python
 
 topluto:
 	rsync -v -r -u ./ pluto:haskoli-islands/src/projects/$(PROJECT)

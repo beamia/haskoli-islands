@@ -51,9 +51,9 @@ Sú regla gildir að nafn breytu skal vera runa af bókstöfum, tölustöfum, og
 
       a. 01rst
       b. rst01
-      c. rst-01
-      e. ρστ01
-      d. Sérdeilis_afskaplega_langt_breytunafn_sem_ætti_að_reyna_að_stytta
+      c. rst\-01
+      d. ρστ01
+      e. Sérdeilis_afskaplega_langt_breytunafn_sem_ætti_að_reyna_að_stytta
       f. abc
       g. def
          
@@ -321,7 +321,7 @@ A og B með :code:`print(f"{A = :.3f}, {B = :.2f}")`.
    en í staðinn gæti það haft: |br|
    |sp3| |sp3| :code:`print('%d   %.4f   %2d' % (x, math.sqrt(x), x**2))` |br|
    í öftustu línunni. Annar möguleiki í eldra Python er format-fallið.
-         Sýnidæmisforritið mætti líka skrifa með |br|
+   Sýnidæmisforritið mætti líka skrifa með |br|
    |sp3| |sp3| :code:`print("{}   {:.4f}   {:2}".format(x, math.sqrt(x), x**2)`.
    
 .. _ny-foll:

@@ -15,7 +15,10 @@ dulmálsfræði, erfðafræði, stofnstærðarspár, líkön af heyrn, netleit o
 
 Grunnreikniaðgerðir
 -------------------
-Í grein :numref:`reiknað-með-vigrum` var rætt hverning hægt er að leggja saman tvo vigra, draga annan frá hinum og margfalda vigur með tölu. Þessum aðgerðum má líka beita á fylki, og þá verka þær á tilsvarandi stök, eins og fyrir vigrana. Þannig gildir:
+Í grein :numref:`reiknað með vigrum í stærðfræði` var rætt hverning hægt er að
+leggja saman tvo vigra, draga annan frá hinum og margfalda vigur með tölu.
+Þessum aðgerðum má líka beita á fylki, og þá verka þær á tilsvarandi stök, eins
+og fyrir vigrana. Þannig gildir:
 
 .. math::
    \begin{pmatrix}1 & 2\\3 & 4\end{pmatrix} +

@@ -473,7 +473,14 @@ kafla :numref:`strengir`.
               
 Fjöldi stafa í skrafli
 ~~~~~~~~~~~~~~~~~~~~~~
-1. Í þessu verkefni á að búa til töflu yfir hlutfallslega tíðni hvers stafs í
+
+1.
+
+   .. figure:: myndir/skrafl.jpg
+      :align: right
+      :width: 10cm
+
+   Í þessu verkefni á að búa til töflu yfir hlutfallslega tíðni hvers stafs í
    skránni ``ord.txt`` úr :numref:`verkefni %s<Skrá með íslenskum orðum>`, og
    jafnframt hvað sú tíðni samsvarar mörgum heilum stöfum af 98, sem er
    heildarfjöldi stafa í pokanum sem notaður er í borðspilinu skrafli
@@ -576,7 +583,7 @@ inniheldur prófnúmer og nöfn.
    nafnaskrána inn í uppflettitöflu ``nafn_tafla`` sem nota má til að fletta upp
    á nafni útfrá prófnúmeri. Prófið með sama hætti og fyrr.
 
-3. **Úskrift lista.** Skrifið forrit sem rennir í gegn um prófnúmerin í
+3. **Útskrift lista.** Skrifið forrit sem rennir í gegn um prófnúmerin í
    ``eink_tafla``, flettir upp nafni hvers nemanda í ``nafn_tafla``, og skrifar
    allt þrennt: prófnúmer, einkunn, og nafn í snyrtilegri töflu með fyrirsögnum
    og dálkum sem standast á.
@@ -593,7 +600,7 @@ inniheldur prófnúmer og nöfn.
 
    Forritin í liðum 1 og 2 má líka útfæra með NumPy; liður 1 er einfaldur:
    dálkar skrárinnar eru lesnir inn með ``np.loadtxt`` (sbr. kafla
-   :numref:`innlestur og útskrift`) og svo er uppflettitaflan búin til með
+   :numref:`innlestur úr skrám`) og svo er uppflettitaflan búin til með
    ``dict(zip(...))``, eins og í seinna sýnidæminu í :numref:`uppflettitafla
    lesin úr skrá`. Aftur er nafnaskráin erfiðari. Einn möguleiki er að lesa
    hana inn með ``L = np.loadtxt(..., dtype=str, delimiter=',')``. Af því að
@@ -717,7 +724,9 @@ Fallateikning
 Hiti og úrkoma
 ~~~~~~~~~~~~~~
 Í þessu verkefni ráðið þið hvort þið lesið gögnin með aðstoð ``urlopen`` (sjá
-kafla :numref:`innlestur textaskrár af vefnum` og :numref:`dæmi um teikningu talnagagna`), csv-lesara (sjá :numref:`náð í dálk í csv-skrá`) eða NumPy (sjá :numref:`innlestur og útskrift`).
+kafla :numref:`innlestur textaskrár af vefnum` og :numref:`dæmi um teikningu
+talnagagna`), csv-lesara (sjá :numref:`náð í dálk í csv-skrá`) eða NumPy (sjá
+:numref:`innlestur úr skrám`).
 
 1. **Veðurskrá lesin.** Í skránni `cs.hi.is/python/hiti-urkoma.txt
    <https://cs.hi.is/python/hiti-urkoma.txt>`_ eru gögn um meðalárshita og úrkomu í
@@ -840,7 +849,7 @@ attribute")
    töflu frá L1 til L2 (sbr. sýnidæmi aftast í kafla :numref:`innlestur skráa`).
    Búið til slíka uppflettitöflu frá nöfnum yfir í prófnúmer og aðra yfir í
    kennitölur og skrifið út nýja töflu með þessum upplýsingum, með fyrirsögnum
-   og snyrtilega upp setta.
+   og snyrtilega upp setta (nöfnin enn í stafrófsröð).
 
 Sínussveiflur
 ~~~~~~~~~~~~~
@@ -966,7 +975,7 @@ Hér er mynd af súluritinu sem stefnt er að:
    <https://cs.hi.is/python/kosningar-2021.txt>`_. Það eru þrír dálkar, með
    listabókstaf, atkvæðatölu og þingsætafjölda fyrir hvert framboð. Skrána er
    hægt að lesa með ``numpy.loadtxt`` eins og lýst er í kafla
-   :numref:`numpy-skrár-með-textadálkum`. Skrifið fall ``lesaúrslit()`` sem les
+   :numref:`innlestur skráa með textadálkum`. Skrifið fall ``lesaúrslit()`` sem les
    þessa skrá og skilar þremur listum, ``listi``, ``atkvæði`` og ``þingsæti`` með
    innihaldinu. Prófið.
   
@@ -1121,12 +1130,12 @@ Reikningar með NumPy
       \quad\text{og}\quad
       B = \begin{pmatrix}5&5&5\\6&6&6\\7&8&9\end{pmatrix}
 
-   1. Finnið :math:`a\cdot b - \dfrac{c\cdot(Bb)}{3\|c\|}`
-   2. Finnið :math:`2(A^\text{T} + B^2)(a - 2b)`
-   3. Ákvarðið :math:`\det(A)` og :math:`A^{-1}`
-   4. Leysið jöfnuhneppið :math:`Ax = b`
+   a. Finnið :math:`a\cdot b - \dfrac{c\cdot(Bb)}{3\|c\|}`
+   b. Finnið :math:`2(A^\text{T} + B^2)(a - 2b)`
+   c. Ákvarðið :math:`\det(A)` og :math:`A^{-1}`
+   d. Leysið jöfnuhneppið :math:`Ax = b`
 
-   5. Palli er með fimmkalla og tíkalla í vasanum, alls 23 peninga, samtals
+   e. Palli er með fimmkalla og tíkalla í vasanum, alls 23 peninga, samtals
       170 kr. Hvað er hann með mikið af hvorri mynt?
 
 2. Skrifið fall til að leysa jöfnurnar:
@@ -1139,12 +1148,15 @@ Reikningar með NumPy
        
 Körfuboltamenn
 ~~~~~~~~~~~~~~
-Skráin `cs.hi.is/python/karfa.txt <https://cs.hi.is/python/karfa.txt>`_ inniheldur þrjá
-dálka með aldri hæð og þyngd 1064 bandarískra körfuboltamanna. Notið
-``np.loadtxt`` til að lesa skrána inn í þrjá vigra t.d. `aldur`, `hæð` og
+Skráin `cs.hi.is/python/karfa.txt <https://cs.hi.is/python/karfa.txt>`_
+inniheldur þrjá dálka með aldri hæð og þyngd 1064 bandarískra körfuboltamanna.
+Notið ``np.loadtxt`` til að lesa skrána inn í þrjá vigra t.d. `aldur`, `hæð` og
 `þyngd` eða `a`, `h` og `þ`. Eftirfarandi teikningar þarf að gera sæmilega
 snyrtilega, m.a. merkja ása og setja inn titla og passa að þær séu mátulega
-stórar. Mörk súlna í súluritunum þurfa að vera rúnnaðar tölur (t.d. heilar eða hálfar tölur) og súlurnar eiga að hafa bil á milli sín. Þeir sem vilja mega setja einhverjar teikningar hlið við hlið með því að nota ``plt.subplot``, sbr. einfalda lýsingu `hér
+stórar. Mörk súlna í súluritunum þurfa að vera rúnnaðar tölur (t.d. heilar eða
+hálfar tölur) og súlurnar eiga að hafa bil á milli sín. Þeir sem vilja mega
+setja einhverjar teikningar hlið við hlið með því að nota ``plt.subplot``, sbr.
+kafla :numref:`gervigögn` og einfalda lýsingu hjá `w3schools
 <https://www.w3schools.com/python/matplotlib_subplots.asp>`_.
 
 1. Teiknið þrjú súlurit af aldri, hæð og þyngd.
@@ -1271,8 +1283,8 @@ framgangsmáta má nota í lið 6, en í lið 5 þarf myndafylkið að vera stik
 ``hiðra_snúa_hliðra(mynd, horn, punktur)`` því ekki er hægt að skeyta saman
 hliðrun og margföldun saman í eina fylkjaaðgerð.
 
-Grannafylki og legufylki
-~~~~~~~~~~~~~~~~~~~~~~~~
+Flæðinet
+~~~~~~~~
 Stefnt net hefur 5 hnúta og eftirfarandi 7 leggi:
 
   `•` frá hnút 1 til 2 og 3 |br|
@@ -1280,18 +1292,44 @@ Stefnt net hefur 5 hnúta og eftirfarandi 7 leggi:
   `•` frá 3 til 4 og 5 |br|
   `•` frá 4 til 5
 
-Í leggjunum er flæði 2 l/s nema í þeim síðassttalda, þar flæða 4 l/s.
-  
-1. 1. Teiknið netið
-   2. Finnið grannafylkið :math:`A`
-   3. Reiknið :math:`A^2` og :math:`A^3` og ákvarðið í framhaldi heildarfjölda
-      mismunandi vega með lengd 3 í netinu
-   4. Notið fylkjaveldi og samlagningu til að finna heildarfjölda vega frá 1 til 5
-
-2. 1. Finnið legufylki netsins, :math:`L`, miðað við að leggirnir séu tölusettir
+1. (til að leysa með blaði og blýanti)
+   
+   a. Teiknið netið
+   b. Finnið grannafylkið :math:`A`
+   c. Finnið legufylki netsins, :math:`L`, miðað við að leggirnir séu tölusettir
       í sömu röð og þeir eru taldir upp að ofan.
-   2. Notið flæðisvarðveislujöfnuna til að ákvarða hvaða hnútar eru lindir og
-      ósar og hve mikið streymir inn og út þar.
+   d. Lát burðargetu leggjanna vera sem hér segir:
+
+      .. table::
+         :align: center
+      
+         ======  ==========
+         leggur  burðargeta
+         ======  ==========
+         1–2     5
+         1–3     5
+         2–3     4
+         2–4     3
+         3–4     2
+         3–5     3
+         4–5     5
+         ======  ==========
+
+      Reiknið hámarksflæði með Ford-Fulkerson aðferðinni og blaði og blýanti.
+      Byrjið með veginn 1–2–4–5, svo 1–3–5 og loks 1–3–4–5 og sýnið flæðið eftir
+      hvert skref. Hvert er flæðifylkið eftir lokaskrefið (þ.e. fylki með
+      :math:`(i,j)`-stak jafnt flæðinu í legg :math:`i \to j`)?
+
+2. (til að leysa með Python)
+   
+   a. Reiknið :math:`A^2` og :math:`A^3` og ákvarðið í framhaldi heildarfjölda
+      mismunandi vega með lengd 3 í netinu
+   b. Notið fylkjaveldi og samlagningu til að finna heildarfjölda vega frá 1 til 5
+   c. Notið maximium_flow fallið í SciPy til að finna hámarksflæði og
+      tilsvarandi fylki, sbr. lið 1d.
+   d. Gerum nú ráð fyrir að það flæði 2 l/s í öllum leggjum nema 4–5, þar flæði
+      4 l/s. Notið flæðisvarðveislujöfnuna til að ákvarða hvaða hnútar eru
+      lindir og ósar og hve mikið streymir inn og út þar.
 
 Leslie-fylki fyrir fjögur ár
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1304,9 +1342,9 @@ og 40% tveggja ára lifa til næsta árs (en sem sé enginn þeirra sem eru þri
 500 þriggja ára.
 
 1. Finnið Leslie fylkið.
-2. 1. Hver er stofnstærðin eftir eitt ár?
-   2. Hver er stofnstærðin eftir 10 ár?
-   3. Fjölgar í það óendanlega eða deyr stofninn að lokum út?
+2. a. Hver er stofnstærðin eftir eitt ár?
+   b. Hver er stofnstærðin eftir 10 ár?
+   c. Fjölgar í það óendanlega eða deyr stofninn að lokum út?
 
 Leslie-fylki og gröf
 ~~~~~~~~~~~~~~~~~~~~
@@ -1338,12 +1376,17 @@ Tegund lifir að hámarki í 5 ár. Fæðingartíðni og dánartíðni og upphaf
    
 Mannfjöldaspá fyrir Ísland
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: myndir/mannfjoldi.jpg
+   :align: center
+   :figwidth: 15cm
+
 Í skránni `https://cs.hi.is/python/aldursdreifing.txt
 <https://cs.hi.is/python/aldursdreifing.txt>`_ eru gögn um mannfjölda á Íslandi
 árið 2020, fæðingartíðni og dánartíðni, og fjölda aðfluttra umfram brottflutta
 eftir aldri.
 
-1. Notið Leslie-fylki til að spá mannfjölda á Íslandi 2020–2050 ef ekki er tekið
+1. Notið Leslie-fylki til að spá mannfjölda á Íslandi 2020–2075 ef ekki er tekið
    tillit til innflytjenda. Skrifið töflu yfir heildarfjöldann á 5 ára fresti.
 
 2. Bætið við áhrifum innflytjenda ef gert er ráð fyrir að árlegur fjöldi
@@ -1359,9 +1402,9 @@ eftir aldri.
    4 inn á sömu mynd.
 
 5. Búið til textareit og skrifið nokkrar (t.d. 10) línur um niðurstöðurnar frá
-   eigin brjósti. Hafið einhverjar tölulegar upplýsingar fengnar með Python með.
-   Þið megið líka alveg bæta einhverju við sem þið finnið með netleit Það eru
-   viljandi ekki gefin frekari fyrirmæli heldur er ætlast til að þið notið
+   eigin brjósti. Hafið einhverjar tölulegar upplýsingar fengnar með Python með
+   og sömuleiðis eitthvað sem þið finnið með leit á netinu. Það eru viljandi
+   ekki gefin frekari fyrirmæli heldur er ætlast til að þið notið
    hugmyndaflugið.
    
 .. admonition:: Athugasemd:
@@ -1458,7 +1501,7 @@ Stærð jarðskjálfta (nánar tiltekið vægisstærð, *moment magnitude*) er g
       +-------+----------+--------------------------+
 
    Skrifið forrit sem býr til uppflettitöflu ``stærð`` með orku
-   jarðskjálftanna skv. miðstövunum þremur (þannig t.d. að ``stærð["USGS"]`` sé
+   jarðskjálftanna skv. miðstöðvunum þremur (þannig t.d. að ``stærð["USGS"]`` sé
    ``3.20e17``), og skrifar í framhaldi út töflu yfir niðurstöðuna sem byrjar
    svona:
 

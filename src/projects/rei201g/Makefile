@@ -21,7 +21,10 @@ clean:
 
 www:
 	$(MAKE) build
-	copy-to-cs $(BUILD) /Volumes/cs/htdocs/strei
+	rsync -vru $(BUILD)/ pluto:/mnt/strei
+
+topluto:
+	rsync -v -r -u ./ pluto:haskoli-islands/src/projects/$(PROJECT)
 
 $(BUILDCSS): $(PROJECTCSS)
 	mkdir -p $(BUILDCSSDIR)

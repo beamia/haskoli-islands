@@ -876,7 +876,7 @@ frá :math:`a` til :math:`b` gefinn með :math:`b - a`:
    :figwidth: 5cm
    :align: center
 
-og þessvegna er fjarlægðin milli :math:`a` og :math:`b` gefin með
+og þess vegna er fjarlægðin milli :math:`a` og :math:`b` gefin með
 :math:`\|b-a\|`, eða :math:`\|a-b\|` sem er jafngilt. Því liggur beint við
 að skilgreina fjarlægð milli almennra vigra á sama hátt.
 
