@@ -4,8 +4,8 @@
    :language: matlab
    :class: highlight
 
-Inngangur: Um Python
-====================
+Inngangur: Um Python.
+=====================
 
 Einfalt og auðlært mál
 ----------------------
